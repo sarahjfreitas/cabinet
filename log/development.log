@@ -1,0 +1,231 @@
+Started GET "/" for 10.0.2.2 at 2019-03-31 02:46:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDocs (20190317185822)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "docs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190317185822_create_docs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190317185822"]]
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190318015910)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190318015910_devise_create_users.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190318015910_devise_create_users.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20190318015910_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190318015910"]]
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddUserToDocs (20190318020338)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (8.6ms)[0m  [1m[35mALTER TABLE "docs" ADD "user_id" integer[0m
+  ↳ db/migrate/20190318020338_add_user_to_docs.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_docs_on_user_id" ON "docs" ("user_id")[0m
+  ↳ db/migrate/20190318020338_add_user_to_docs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190318020338"]]
+  ↳ bin/rails:9
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (3.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-31 02:47:48.489274"], ["updated_at", "2019-03-31 02:47:48.489274"]]
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 10.0.2.2 at 2019-03-31 02:51:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (22.2ms)
+Completed 200 OK in 4207ms (Views: 4143.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 10.0.2.2 at 2019-03-31 02:52:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1418.6ms)
+Completed 200 OK in 1739ms (Views: 1711.1ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2019-03-31 02:52:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CH3mMw7wp6fmgygWQuQGr/Pd7uXDTzxFp/3PfA9JxYesfhI9GnKp+drRlPIXHDgAMVBT5ipWYO8TBf17uJc4Pg==", "user"=>{"email"=>"sarah@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sarah@email.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (6.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "sarah@email.com"], ["encrypted_password", "$2a$11$Eis164Ly.aXLX0ojXbo.UOTgNlnHsehiGABLnqbQNHuaM/8Y3xaVW"], ["created_at", "2019-03-31 02:52:35.671143"], ["updated_at", "2019-03-31 02:52:35.671143"]]
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 445ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2019-03-31 02:52:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by DocsController#index as HTML
+  Rendering docs/index.html.haml within layouts/application
+  [1m[36mDoc Load (1.5ms)[0m  [1m[34mSELECT "docs".* FROM "docs" WHERE "docs"."user_id" = ? ORDER BY id desc[0m  [["user_id", 1]]
+  ↳ app/views/docs/index.html.haml:3
+  Rendered docs/index.html.haml within layouts/application (7.7ms)
+Completed 200 OK in 448ms (Views: 217.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/docs/new" for 10.0.2.2 at 2019-03-31 02:52:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:11
+  Rendering docs/new.html.haml within layouts/application
+  Rendered docs/_form.html.haml (24.6ms)
+  Rendered docs/new.html.haml within layouts/application (49.2ms)
+Completed 200 OK in 308ms (Views: 231.1ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/docs" for 10.0.2.2 at 2019-03-31 02:53:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RGhrGUW75cQKhl+nBMV1lWcsb3a8Il2ruy7GP33Mue+evc30q01+wI2gvLGRJmyTkEW/ouAdUSiGYSRKaq9ssw==", "doc"=>{"title"=>"meu primeiro doc", "content"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus convallis justo vel tempus. Donec arcu sem, auctor et ornare et, tempor sit amet nunc. Vivamus lobortis fringilla quam, quis vulputate ex sagittis sit amet. Ut nec orci urna. Duis finibus urna diam, et fringilla neque tempor quis. Quisque ultricies nisi vel blandit consequat. Pellentesque a viverra nibh, at pulvinar mauris.\r\n\r\nEtiam efficitur eros dolor, nec pulvinar dolor vehicula eu. Ut ut placerat nunc, sed rhoncus risus. Sed imperdiet nibh eu est consectetur, vitae mattis leo semper. Curabitur nec tortor in sapien tempor imperdiet. Aenean ac rhoncus tortor. Etiam porttitor leo turpis, et congue justo mattis at. Ut consectetur vel tellus vel maximus. Pellentesque sed ligula ac lacus blandit posuere. Nulla facilisi. Suspendisse sit amet turpis neque. Curabitur lorem ligula, commodo in dapibus sed, tempor et lorem. Nulla lacinia, eros vitae luctus ultricies, quam massa bibendum quam, cursus pharetra libero purus quis urna. Nam at ex at augue dignissim interdum id vitae massa. Fusce vitae tincidunt sem, vitae lacinia magna. Donec sed leo in enim aliquam vestibulum.\r\n\r\nAenean eleifend quis mi in tincidunt. Donec tristique, sem nec hendrerit ultricies, nisl mi sodales nisi, vel varius magna mauris nec turpis. In non neque odio. Nam dapibus turpis vitae ipsum consectetur sollicitudin. Ut placerat nisl nec est rhoncus auctor. Suspendisse vulputate in ex mollis dapibus. Vivamus ultrices vehicula urna, nec sodales leo consectetur non. Cras quis porta libero. Vivamus mi nisi, porttitor ac vulputate nec, aliquet non risus. Nullam dictum, magna ut hendrerit ultricies, elit orci ultricies eros, quis blandit enim mauris quis sem. In blandit lectus in rhoncus lacinia. Suspendisse odio risus, varius non posuere id, feugiat eget purus. Cras vulputate gravida neque dignissim convallis.\r\n\r\nMauris dignissim maximus placerat. Etiam maximus fringilla elit eu blandit. Aenean ipsum eros, iaculis quis massa ut, ornare tempor nibh. Nam porttitor justo leo, quis auctor libero posuere sit amet. Integer vel dolor libero. Maecenas eget faucibus neque. Duis metus felis, suscipit at dui vel, auctor porttitor nibh. Morbi et justo quis eros ullamcorper dapibus non et risus. Nulla facilisi.\r\n\r\nSed non varius leo. Curabitur magna justo, dapibus vel pulvinar ac, feugiat et quam. In id quam libero. Nullam varius arcu sed mi porttitor, quis pharetra lectus accumsan. Nullam porta eu sapien eu gravida. Etiam eget congue elit, vel varius arcu. Nulla eget arcu non augue porttitor fringilla. Aenean erat felis, vulputate id leo ut, fermentum consequat purus. Suspendisse at volutpat justo. Suspendisse at est ultrices, luctus felis vitae, aliquam est. Phasellus condimentum vulputate lectus convallis aliquam. Integer ornare, sapien sed varius tincidunt, ante metus congue lorem, vitae sagittis ligula arcu sed elit."}, "commit"=>"Create Doc"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/docs_controller.rb:16
+  [1m[36mDoc Create (5.7ms)[0m  [1m[32mINSERT INTO "docs" ("title", "content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "meu primeiro doc"], ["content", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus convallis justo vel tempus. Donec arcu sem, auctor et ornare et, tempor sit amet nunc. Vivamus lobortis fringilla quam, quis vulputate ex sagittis sit amet. Ut nec orci urna. Duis finibus urna diam, et fringilla neque tempor quis. Quisque ultricies nisi vel blandit consequat. Pellentesque a viverra nibh, at pulvinar mauris.\r\n\r\nEtiam efficitur eros dolor, nec pulvinar dolor vehicula eu. Ut ut placerat nunc, sed rhoncus risus. Sed imperdiet nibh eu est consectetur, vitae mattis leo semper. Curabitur nec tortor in sapien tempor imperdiet. Aenean ac rhoncus tortor. Etiam porttitor leo turpis, et congue justo mattis at. Ut consectetur vel tellus vel maximus. Pellentesque sed ligula ac lacus blandit posuere. Nulla facilisi. Suspendisse sit amet turpis neque. Curabitur lorem ligula, commodo in dapibus sed, tempor et lorem. Nulla lacinia, eros vitae luctus ultricies, quam massa bibendum quam, cursus pharetra libero purus quis urna. Nam at ex at augue dignissim interdum id vitae massa. Fusce vitae tincidunt sem, vitae lacinia magna. Donec sed leo in enim aliquam vestibulum.\r\n\r\nAenean eleifend quis mi in tincidunt. Donec tristique, sem nec hendrerit ultricies, nisl mi sodales nisi, vel varius magna mauris nec turpis. In non neque odio. Nam dapibus turpis vitae ipsum consectetur sollicitudin. Ut placerat nisl nec est rhoncus auctor. Suspendisse vulputate in ex mollis dapibus. Vivamus ultrices vehicula urna, nec sodales leo consectetur non. Cras quis porta libero. Vivamus mi nisi, porttitor ac vulputate nec, aliquet non risus. Nullam dictum, magna ut hendrerit ultricies, elit orci ultricies eros, quis blandit enim mauris quis sem. In blandit lectus in rhoncus lacinia. Suspendisse odio risus, varius non posuere id, feugiat eget purus. Cras vulputate gravida neque dignissim convallis.\r\n\r\nMauris dignissim maximus placerat. Etiam maximus fringilla elit eu blandit. Aenean ipsum eros, iaculis quis massa ut, ornare tempor nibh. Nam porttitor justo leo, quis auctor libero posuere sit amet. Integer vel dolor libero. Maecenas eget faucibus neque. Duis metus felis, suscipit at dui vel, auctor porttitor nibh. Morbi et justo quis eros ullamcorper dapibus non et risus. Nulla facilisi.\r\n\r\nSed non varius leo. Curabitur magna justo, dapibus vel pulvinar ac, feugiat et quam. In id quam libero. Nullam varius arcu sed mi porttitor, quis pharetra lectus accumsan. Nullam porta eu sapien eu gravida. Etiam eget congue elit, vel varius arcu. Nulla eget arcu non augue porttitor fringilla. Aenean erat felis, vulputate id leo ut, fermentum consequat purus. Suspendisse at volutpat justo. Suspendisse at est ultrices, luctus felis vitae, aliquam est. Phasellus condimentum vulputate lectus convallis aliquam. Integer ornare, sapien sed varius tincidunt, ante metus congue lorem, vitae sagittis ligula arcu sed elit."], ["created_at", "2019-03-31 02:53:11.916049"], ["updated_at", "2019-03-31 02:53:11.916049"], ["user_id", 1]]
+  ↳ app/controllers/docs_controller.rb:16
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/docs_controller.rb:16
+Redirected to http://localhost:3000/docs/1
+Completed 302 Found in 31ms (ActiveRecord: 17.9ms)
+
+
+Started GET "/docs/1" for 10.0.2.2 at 2019-03-31 02:53:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoc Load (6.2ms)[0m  [1m[34mSELECT  "docs".* FROM "docs" WHERE "docs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:45
+  Rendering docs/show.html.haml within layouts/application
+  Rendered docs/show.html.haml within layouts/application (2.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.haml:14
+Completed 200 OK in 218ms (Views: 173.5ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/docs" for 10.0.2.2 at 2019-03-31 02:53:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:4
+  Rendering docs/index.html.haml within layouts/application
+  [1m[36mDoc Load (1.4ms)[0m  [1m[34mSELECT "docs".* FROM "docs" WHERE "docs"."user_id" = ? ORDER BY id desc[0m  [["user_id", 1]]
+  ↳ app/views/docs/index.html.haml:3
+  Rendered docs/index.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 245ms (Views: 205.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/docs" for 10.0.2.2 at 2019-03-31 02:55:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:4
+  Rendering docs/index.html.haml within layouts/application
+  [1m[36mDoc Load (1.8ms)[0m  [1m[34mSELECT "docs".* FROM "docs" WHERE "docs"."user_id" = ? ORDER BY id desc[0m  [["user_id", 1]]
+  ↳ app/views/docs/index.html.haml:3
+  Rendered docs/index.html.haml within layouts/application (22.6ms)
+Completed 200 OK in 278ms (Views: 232.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/docs/1" for 10.0.2.2 at 2019-03-31 02:55:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoc Load (1.4ms)[0m  [1m[34mSELECT  "docs".* FROM "docs" WHERE "docs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:45
+  Rendering docs/show.html.haml within layouts/application
+  Rendered docs/show.html.haml within layouts/application (2.7ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.haml:14
+Completed 200 OK in 188ms (Views: 161.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/docs" for 10.0.2.2 at 2019-03-31 02:55:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DocsController#index as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/docs_controller.rb:4
+  Rendering docs/index.html.haml within layouts/application
+  [1m[36mDoc Load (1.9ms)[0m  [1m[34mSELECT "docs".* FROM "docs" WHERE "docs"."user_id" = ? ORDER BY id desc[0m  [["user_id", 1]]
+  ↳ app/views/docs/index.html.haml:3
+  Rendered docs/index.html.haml within layouts/application (8.9ms)
+Completed 200 OK in 247ms (Views: 209.7ms | ActiveRecord: 5.7ms)
+
+
